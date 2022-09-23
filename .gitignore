@@ -1,0 +1,5 @@
+/.vscode
+/ckpt
+/data/MPI-Sintel-complete
+/rank_0
+/src/__pycache__
