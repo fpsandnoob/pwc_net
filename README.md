@@ -15,7 +15,7 @@ PWC-Net网络的结构如下图右方所示：
 其网络结构包含三个重要模块：Feature Pyramind、Warping和Cost Volume。
 
 + Feature Pyramind：该模块的作用是将输入的图像进行下采样，得到不同尺度的特征图，具体结构如下图所示。
-![](feature_extraction.png)
+![](feature_extractor.png)
 该网络由12层卷积层和附属的非线性激活层组成.
 
 + Warping: 该模块的作用主要是将后一张的特征通过扭曲操作变换到前一张图像的特征上
@@ -49,7 +49,7 @@ PWC-Net网络的结构如下图右方所示：
 ### 2.2 数据集处理
 针对以上的数据集，我们使用MindSpore提供的`mindspore.dataset`进行数据处理，具体的数据处理过程如下：
 FlyingChairs数据集处理：
-```
+```python
 import glob
 from importlib import invalidate_caches
 from operator import le

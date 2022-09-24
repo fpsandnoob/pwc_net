@@ -38,7 +38,6 @@ class PWCNet(nn.Cell):
             else:
                 num_in_channel = self.dim_corr + 2 + channel
 
-            print(num_in_channel)
             self.dense_flow_estimators.append(DenseFlowEstimator(num_in_channel))
 
         self.context_networks = ContextNetwork(self.dim_corr + 32 + 2 + 448 + 2)
