@@ -98,7 +98,7 @@ class ValLossMonitor(Callback):
                 os.remove(file_name)
 
             # Save the best ckpt file
-            if res >= self.best_res:
+            if res <= self.best_res:
                 self.best_res = res
                 if self.save_best_ckpt:
                     if os.path.exists(self.best_ckpt_path):

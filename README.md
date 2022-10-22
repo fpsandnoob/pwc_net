@@ -14,7 +14,7 @@ PWC-Net网络的结构如下图右方所示：
 
 其网络结构包含三个重要模块：Feature Pyramind、Warping和Cost Volume。
 
-+ Feature Pyramind：该模块的作用是将输入的图像进行下采样，得到不同尺度共计6个尺度（$16\times256\times256$，$32\times128\times128$，$64\times64\times64$，$96\times32\times32$，$128\times16\times16$，$192\times8\times8$）的特征图，该网络由12层卷积层和附属的非线性激活层组成，具体结构如下图所示.  
++ Feature Pyramind：该模块的作用是将输入的图像进行下采样，得到不同尺度共计6个尺度（ $16\times256\times256$， $32\times128\times128$， $64\times64\times64$， $96\times32\times32$， $128\times16\times16$， $192\times8\times8$）的特征图，该网络由12层卷积层和附属的非线性激活层组成，具体结构如下图所示.  
 ![](feature_extractor.png)
 + Warping: 该模块的作用主要是将后一张的特征通过扭曲操作变换到前一张图像的特征上。（由于光流是反映两帧之间像素运动程度，理论上我们可以借助光流将后一帧图像的每个像素点映射回前一帧图像上，如果光流是没有任何偏差的，后一帧映射后的图像就会和前一帧的图像完全一致，因此就可以使用如MSE等一致性损失函数来优化光流估计网络）。其公式如下<br>
 $c_w^l=c_2^l(x+up_2(w^{l+1})(x))$<br>
