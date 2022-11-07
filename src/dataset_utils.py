@@ -2,7 +2,7 @@ import os
 from typing import Any, List, Tuple
 import numpy as np
 from mindspore.dataset.transforms.transforms import PyTensorOperation, TensorOperation
-import skimage.io as io
+from matplotlib.pyplot import imread
 
 def read_flo_as_float32(filename):
     with open(filename, 'rb') as file:
@@ -17,7 +17,7 @@ def read_data(filename):
     if filename.endswith('.flo'):
         return read_flo_as_float32(filename)
     else:
-        return io.imread(filename)
+        return (imread(filename) * 255.).astype(np.uint8)
 
 def get_father_dir(path):
     return os.path.abspath(os.path.join(os.path.dirname(path), ".."))
