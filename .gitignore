@@ -3,3 +3,7 @@
 /data/MPI-Sintel-complete
 /rank_0
 /src/__pycache__
+/pretrained_model/__pycache__
+/pretrained_model/ckpt_convert.py
+/pretrained_model/pwcnet-pretrained.pth
+/pretrained_model/run_ckpt_convert.sh
