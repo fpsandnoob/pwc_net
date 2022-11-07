@@ -55,6 +55,8 @@ class FlyingChairsDataset:
             self.image_path_list.append([image_files[2 * i], image_files[2 * i + 1]])
             self.flow_path_list.append(flow_files[i])
 
+        self.simple_transform = TransformsComposeForMultiImages([V.ToPIL(), V.ToTensor()])
+        
         if augmentations:
             self.transform = TransformsComposeForMultiImages(augmentations)
         else:
@@ -141,6 +143,8 @@ class SintelDataset:
         self.image_item = [self.image_item[i] for i in canddiate_indices]
         self.flow_item = [self.flow_item[i] for i in canddiate_indices]
 
+        self.simple_transform = TransformsComposeForMultiImages([V.ToPIL(), V.ToTensor()])
+        
         if augmentations:
             self.transform = TransformsComposeForMultiImages(augmentations)
         else:
@@ -148,6 +152,7 @@ class SintelDataset:
 
     def __len__(self):
         return len(self.image_item)
+        # return 1
 
     def __getitem__(self, index):
         index = index % len(self)

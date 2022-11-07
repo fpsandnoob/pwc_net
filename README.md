@@ -2,7 +2,7 @@
 
 ## 1. 模型简介
 
-PWC-Net网络是由NVIDIA公司提出的一种基于深度学习的光流估计方法,该论文(["PWC-Net: CNNs for Optical Flow Using Pyramid, Warping, and Cost Volume."]([https://arxiv.org/abs/1709.02371]))发表在CVPR2018中。这里也有其扩展版本(["Models Matter, So Does Training: An Empirical Study of CNNs for Optical Flow Estimation."]([https://arxiv.org/abs/1809.05571))。
+PWC-Net网络是由NVIDIA公司提出的一种基于深度学习的光流估计方法,该论文(["PWC-Net: CNNs for Optical Flow Using Pyramid, Warping, and Cost Volume."]([https://arxiv.org/abs/1709.02371]))发表在CVPR2018中。这里也有其扩展版本(["Models Matter, So Does Training: An Empirical Study of CNNs for Optical Flow Estimation."]([https://arxiv.org/abs/1809.05571]))。
 
 PWC-Net网络的主要贡献在于提出了一种新的光流估计方法，该方法可以在单个网络中同时估计光流和视差，并且可以在不同的尺度上进行估计。
 
@@ -29,23 +29,15 @@ $cv^l(x_1,x_2)=\frac{1}{N}(c^l_1(x_1))^{\mathbb{T}}c_w^l(x_2)$<br>
 
 本项目基于MindSpore 1.8.1版本进行实现，目前在GPU环境下运行正常。
 
-案例实现所使用的数据包含两种类别数据集，分别是[FlyingChairs](https://lmb.informatik.uni-freiburg.de/data/FlyingChairs/FlyingChairs.zip)和[MPI-Sintel-complete](https://files.is.tue.mpg.de/sintel/MPI-Sintel-complete.zip)。其中使用FlyingChairs数据集进行训练，使用MPI-Sintel-complete数据集进行验证。如果需要使用FlyingChairs数据集进行训练，需要将数据集解压后放置在`data`目录下，如果需要使用MPI-Sintel-complete数据集进行验证，需要将数据集解压后放置在`data`目录下。
-如果不想使用以上数据集进行训练，可以使用仓库自带的数据集进行训练，该数据放置在`data/example`目录下。具体结构如下：
+案例实现所使用的数据包含一种类别数据集，[MPI-Sintel-complete](https://files.is.tue.mpg.de/sintel/MPI-Sintel-complete.zip)。其中使用MPI-Sintel-complete数据集进行训练，使用MPI-Sintel-complete数据集进行验证。如果需要使用MPI-Sintel-complete数据集进行验证，需要将数据集解压后放置在`data`目录下。
 ```
 .data/
-├── example/
-│   ├── train/
-│   │   ├── 0/
-│   │   │   ├── 0.png
-│   │   │   ├── 1.png
+├── MPI-Sintel-complete/
+│   ├── training/
+│   │   ├── final/
 │   │   │   ├── ......
-│   │   ├── ......
-│   ├── test/
-│   │   ├── 0/
-│   │   │   ├── 0.png
-│   │   │   ├── 1.png
+│   │   ├── flow/
 │   │   │   ├── ......
-│   │   ├── ......
 ```
 
 ### 2.2 数据集处理

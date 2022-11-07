@@ -103,7 +103,7 @@ class PWCNet(nn.Cell):
                 break
 
 
-        if  training:
+        if training:
             return flows
         out_flow = upsample2d_as(flow, x1_raw) * (1.0 / self._div_flow)
         return out_flow

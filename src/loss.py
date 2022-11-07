@@ -36,6 +36,7 @@ class PyramidEPE(LossBase):
         # div_flow trick
         if training:
             target = 0.05 * target
+            # print(target.max(), target.min(), prediction[0].max(), prediction[0].min())
             total_loss = 0
             loss_ii = self.elementwise_epe(prediction[0], self.downsample2d_as(target, prediction[0])).sum()
             total_loss = total_loss + self.scale_weights[0] * loss_ii
