@@ -28,6 +28,10 @@ $cv^l(x_1,x_2)=\frac{1}{N}(c^l_1(x_1))^{\mathbb{T}}c_w^l(x_2)$<br>
 ### 2.1 环境依赖
 
 本项目基于MindSpore 1.8.1版本进行实现，目前在GPU环境下运行正常。
+本代码依赖flow_vis库，该库可以通过以下命令行安装
+```
+pip install flow_vis
+```
 
 案例实现所使用的数据包含一种类别数据集，[MPI-Sintel-complete](https://files.is.tue.mpg.de/sintel/MPI-Sintel-complete.zip)。其中使用MPI-Sintel-complete数据集进行训练，使用MPI-Sintel-complete数据集进行验证。如果需要使用MPI-Sintel-complete数据集进行验证，需要将数据集解压后放置在`data`目录下。
 ```
